@@ -1,0 +1,161 @@
+@import '../../../styles/common';
+
+$container-padding: 16px;
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: $container-padding;
+	border-radius: 16px;
+	overflow: hidden;
+	transition-duration: $transition-medium;
+	&.AUDIOBOOK {
+		--sequenceHeadingColor: #{$ts-white};
+		--sequenceTextColor: #{$ts-white};
+		--sequenceTextSecondaryColor: #{$ts-lightTone};
+		background-color: $ts-bookH;
+		--sequenceBackgroundColorHover: #{$ts-darkened-bookH};
+	}
+	&.BIBLE_BOOK {
+		--sequenceHeadingColor: #{$ts-white};
+		--sequenceTextColor: #{$ts-white};
+		--sequenceTextSecondaryColor: #{$ts-lightTone};
+		background-color: $ts-bibleH;
+		--sequenceBackgroundColorHover: #{$ts-darkened-bibleH};
+	}
+	&.MUSIC_ALBUM {
+		--sequenceHeadingColor: #{$ts-dark};
+		--sequenceTextColor: #{$ts-midTone};
+		--sequenceTextSecondaryColor: #{$ts-midTone};
+		background-color: $ts-songH;
+		--sequenceBackgroundColorHover: #{$ts-darkened-songH};
+	}
+	&.SERIES {
+		--sequenceHeadingColor: #{$ts-dark};
+		--sequenceTextColor: #{$ts-dark};
+		--sequenceTextSecondaryColor: #{$ts-midTone};
+		background-color: $ts-cream;
+		--sequenceBackgroundColorHover: #{$ts-darkened-cream};
+	}
+	&.STORY_SEASON {
+		--sequenceHeadingColor: #{$ts-white};
+		--sequenceTextColor: #{$ts-lightTone};
+		--sequenceTextSecondaryColor: #{$ts-lightTone};
+		background-color: $ts-storyH;
+		--sequenceBackgroundColorHover: #{$ts-darkened-storyH};
+		.subRecordings {
+			--cardBg: #{$ts-darkened-storyB};
+		}
+	}
+	&,
+	&:hover {
+		color: var(--sequenceTextColor);
+	}
+	&:hover:not(.otherHovered) {
+		background-color: var(--sequenceBackgroundColorHover);
+	}
+}
+
+.containerSlim {
+	@media (pointer: coarse) {
+		pointer-events: none;
+	}
+}
+
+.stretch {
+	flex-grow: 1;
+}
+
+.title {
+	margin-bottom: 8px;
+	flex-grow: 1;
+	color: var(--sequenceHeadingColor);
+	&.audiobookTitle {
+		font-weight: 400;
+	}
+	&.bibleBookTitle {
+		text-align: center;
+		margin-bottom: 4px;
+		text-transform: uppercase;
+		font-size: 19px;
+		letter-spacing: 0.2em;
+	}
+	&.storyTitle {
+		font-weight: 600;
+	}
+}
+
+.bibleReadBy {
+	font-weight: 300;
+	text-align: center;
+	color: $ts-lightTone;
+}
+
+.kicker {
+	margin-bottom: 8px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	line-clamp: 2;
+	overflow: hidden;
+	p {
+		margin-top: 0;
+	}
+}
+
+.persons > * {
+	margin-right: 8px;
+	margin-bottom: 8px;
+}
+
+.morePersons {
+	display: flex;
+	align-items: center;
+	> svg {
+		margin-right: 12px;
+		transition: none;
+	}
+	&:hover {
+		color: $ts-red;
+	}
+}
+
+.partsLabel {
+	color: var(--sequenceTextColor);
+	margin-top: 8px;
+}
+
+.details {
+	display: flex;
+	align-items: center;
+	margin-top: -8px;
+	height: 32px;
+}
+
+.duration {
+	color: var(--sequenceTextSecondaryColor);
+	line-height: 1.21;
+}
+
+.progress {
+	margin-left: 16px;
+	flex-grow: 1;
+}
+
+.like {
+	display: none;
+	@media (any-pointer: fine) {
+		display: inherit;
+	}
+	@media (pointer: coarse) {
+		pointer-events: none;
+	}
+	&Active {
+		display: inherit;
+	}
+}
+
+.subRecordings {
+	margin-top: 16px;
+	border-radius: 16px;
+	overflow: hidden;
+}

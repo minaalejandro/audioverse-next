@@ -1,0 +1,283 @@
+@import '../../styles/common';
+
+.base {
+	&.AUDIOBOOK_TRACK {
+		--recordingAccent: #{$ts-salmon};
+		--recordingBackground: #{$ts-bookB};
+		--recordingHatBackground: #{$ts-bookH};
+		--recordingHatHover: #{$ts-darkened-bookH};
+		--recordingTextColor: #{$ts-white};
+		--recordingTextSecondaryColor: #{$ts-lightTone};
+		--recordingWavesColor: #{$ts-bookH};
+	}
+	&.BIBLE_CHAPTER {
+		--recordingAccent: #{$ts-red};
+		--recordingBackground: #{$ts-bibleB};
+		--recordingHatTextColor: #{$ts-white};
+		--recordingHatBackground: #{$ts-bibleH};
+		--recordingHatHover: #{$ts-darkened-bibleH};
+		--recordingTextColor: #{$ts-dark};
+		--recordingTextSecondaryColor: #{$ts-midTone};
+		--recordingWavesColor: #{$ts-lightTone};
+	}
+	&.MUSIC_TRACK {
+		--recordingAccent: #{$ts-red};
+		--recordingBackground: #{$ts-songB};
+		--recordingHatBackground: #{$ts-songH};
+		--recordingHatHover: #{$ts-darkened-songH};
+		--recordingTextColor: #{$ts-dark};
+		--recordingTextSecondaryColor: #{$ts-midTone};
+		--recordingWavesColor: #{$ts-lightTone};
+	}
+	&.SERMON {
+		--recordingAccent: #{$ts-red};
+		border: 1px solid $ts-cream;
+		--recordingBackground: #{$ts-white};
+		--recordingHatBackground: #{$ts-cream};
+		--recordingHatHover: #{$ts-darkened-cream};
+		--recordingTextColor: #{$ts-dark};
+		--recordingTextSecondaryColor: #{$ts-midTone};
+		--recordingWavesColor: #{$ts-lightTone};
+	}
+	&.STORY {
+		--recordingAccent: #{$ts-salmon};
+		--recordingBackground: #{$ts-storyB};
+		--recordingHatBackground: #{$ts-storyH};
+		--recordingHatHover: #{$ts-darkened-storyH};
+		--recordingTextColor: #{$ts-white};
+		--recordingTextSecondaryColor: #{$ts-lightTone};
+		--recordingWavesColor: #{$ts-storyH};
+	}
+	background: var(--recordingBackground, $ts-white);
+	color: var(--recordingTextColor);
+	--headingColor: var(--recordingTextColor);
+	--cardColor: var(--recordingTextSecondaryColor);
+	--partColor: var(--recordingAccent);
+	--progressColor: var(--recordingAccent);
+}
+
+.hat {
+	background-color: var(--recordingHatBackground);
+	padding: 16px 24px;
+	display: block;
+	text-decoration: none;
+	h4 {
+		margin: 0;
+		font-size: 16px;
+	}
+	&,
+	&:hover {
+		color: var(--recordingHatTextColor, --recordingTextColor);
+	}
+	&:hover {
+		text-decoration: none;
+		background: var(--recordingHatHover);
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	> * {
+		padding: 24px;
+	}
+	p {
+		margin-top: 8px;
+		margin-bottom: 16px;
+	}
+	@media (min-width: $breakpoint-xl) {
+		flex-direction: row;
+	}
+}
+
+.main {
+	flex-grow: 1;
+
+	@media (min-width: $breakpoint-xl) {
+		max-width: 66.6666%;
+	}
+}
+
+.series {
+	position: relative;
+	background-color: var(--recordingBackground);
+	.item {
+		margin-bottom: 32px;
+	}
+	@media (min-width: $breakpoint-xl) {
+		flex: 1 0 33.3333%;
+		min-width: 300px;
+		max-width: 468px;
+		border-left: 1px solid var(--recordingHatBackground);
+	}
+}
+@media (min-width: $breakpoint-xl) {
+	.seriesScroller {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		overflow: auto;
+		margin: 24px 0;
+		> * {
+			padding: 0 24px;
+		}
+	}
+	.seriesHeading {
+		position: sticky;
+		top: 0;
+		margin-bottom: 0;
+		padding-bottom: 16px;
+		background: var(--recordingBackground);
+		z-index: 10;
+	}
+}
+.seriesItems {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	@media (min-width: $breakpoint-md) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		> * {
+			flex: 0 0 calc(50% - 16px);
+			display: flex;
+			&:nth-child(odd) {
+				margin-right: 16px;
+			}
+			&:nth-child(even) {
+				margin-left: 16px;
+			}
+		}
+	}
+	@media (min-width: $breakpoint-xl) {
+		display: block;
+		> * {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+}
+
+.part {
+	color: var(--recordingAccent);
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.speakers {
+	padding-left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	li {
+		display: block;
+		margin-right: 8px;
+		margin-bottom: 8px;
+		@media (min-width: $breakpoint-md) {
+			display: inline-block;
+		}
+		@media (min-width: $breakpoint-lg) {
+			margin-right: 16px;
+			margin-bottom: 16px;
+		}
+	}
+}
+
+.audiobookHeading {
+	font-weight: 400;
+}
+
+.bibleReadBy {
+	color: $ts-midTone;
+}
+
+.attachment {
+	display: inline-flex;
+	align-items: center;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	padding-left: 16px;
+	border: 1px solid $ts-lightTone;
+	border-radius: 16px;
+	&:hover {
+		box-shadow: $ts-shadow-small-hover;
+		color: $ts-dark;
+		text-decoration: none;
+	}
+	&:focus {
+		box-shadow: $ts-shadow-small-hover;
+		border-color: $ts-midTone;
+	}
+}
+.attachmentIcon {
+	margin-left: 16px;
+	display: inline-block;
+	padding: 12px;
+	background-color: $ts-lightTone;
+	border-top-right-radius: 16px;
+	border-bottom-right-radius: 16px;
+}
+
+@mixin shadowBackground($color, $direction) {
+	background: linear-gradient(
+		$direction,
+		rgba($color, 0) 0%,
+		rgba($color, 0.75) 49.48%,
+		$color 100%
+	);
+}
+@mixin overflowShadow($direction) {
+	display: none;
+	@media (min-width: $breakpoint-xl) {
+		display: block;
+		position: absolute;
+		height: 82px;
+		left: 0;
+		right: 0;
+		pointer-events: none;
+		.AUDIOBOOK_TRACK & {
+			@include shadowBackground($ts-bookB, $direction);
+		}
+		.BIBLE_CHAPTER & {
+			@include shadowBackground($ts-bibleB, $direction);
+		}
+		.MUSIC_TRACK & {
+			@include shadowBackground($ts-songB, $direction);
+		}
+		.SERMON & {
+			@include shadowBackground($ts-white, $direction);
+		}
+		.STORY & {
+			@include shadowBackground($ts-storyB, $direction);
+		}
+	}
+}
+.topOverflowShadow {
+	@include overflowShadow(0deg);
+	@media (min-width: $breakpoint-xl) {
+		top: 54px;
+	}
+}
+.bottomOverflowShadow {
+	@include overflowShadow(180deg);
+	@media (min-width: $breakpoint-xl) {
+		bottom: 0;
+	}
+}
+
+.transcriptWrapper {
+	margin-bottom: 16px;
+}
+
+.transcriptOpen {
+	svg {
+		transform: scaleY(-1);
+	}
+}
+
+.backToChapterButton {
+	margin-bottom: 16px;
+}

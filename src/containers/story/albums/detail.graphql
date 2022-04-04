@@ -1,0 +1,33 @@
+query getStoryAlbumDetailPageData($id: ID!) {
+	storySeason(id: $id) {
+		...sequence
+		canonicalUrl(useFuturePath: true)
+		language
+	}
+}
+
+query getStoryAlbumFeedData($id: ID!) {
+	storySeason(id: $id) {
+		id
+		title
+		image {
+			url(size: 600)
+		}
+		canonicalUrl(useFuturePath: true)
+		recordings(first: 25) {
+			nodes {
+				...generateFeed
+			}
+		}
+		language
+		...bookFeedDescription
+	}
+}
+
+query getStoryAlbumDetailPathsData($language: Language!, $first: Int) {
+	storySeasons(language: $language, first: $first) {
+		nodes {
+			canonicalPath(useFuturePath: true)
+		}
+	}
+}

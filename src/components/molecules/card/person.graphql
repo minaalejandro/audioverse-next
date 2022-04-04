@@ -1,0 +1,14 @@
+fragment cardPerson on Person {
+	id
+	name
+	canonicalPath(useFuturePath: true)
+	image {
+		id
+		url(size: 128)
+	}
+	recordings(first: 2, orderBy: [{ field: PUBLISHED_AT, direction: DESC }]) {
+		aggregate {
+			count
+		}
+	}
+}

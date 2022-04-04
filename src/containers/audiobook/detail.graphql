@@ -1,0 +1,34 @@
+query getAudiobookDetailPageData($id: ID!) {
+	audiobook(id: $id) {
+		...sequence
+		canonicalUrl(useFuturePath: true)
+		language
+	}
+}
+
+query getAudiobookFeedData($id: ID!) {
+	sequence(id: $id) {
+		id
+		title
+		contentType
+		image {
+			url(size: 600)
+		}
+		canonicalUrl(useFuturePath: true)
+		language
+		recordings(first: 25) {
+			nodes {
+				...generateFeed
+			}
+		}
+		...bookFeedDescription
+	}
+}
+
+query getAudiobookDetailPathsData($language: Language!, $first: Int) {
+	audiobooks(language: $language, first: $first) {
+		nodes {
+			canonicalPath(useFuturePath: true)
+		}
+	}
+}

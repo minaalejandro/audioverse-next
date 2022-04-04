@@ -1,0 +1,29 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	svg {
+		margin-left: 8px;
+	}
+}
+
+.intro {
+	margin: 0 0 16px;
+}
+
+.featuresList {
+	margin: 0 0 8px;
+	line-height: 1.2;
+}

@@ -1,0 +1,37 @@
+query getLibraryData(
+	$language: Language!
+	$first: Int!
+	$offset: Int!
+	$groupSequences: Boolean!
+	$hasVideo: Boolean
+	$recordingDuration: IntegerRangeInput
+	$recordingContentType: RecordingContentType
+	$types: [FavoritableCatalogEntityType!]
+	$viewerPlaybackStatus: RecordingViewerPlaybackStatus
+	$sortField: FavoritesSortableField!
+	$sortDirection: OrderByDirection!
+) {
+	me {
+		user {
+			favorites(
+				language: $language
+				first: $first
+				offset: $offset
+				groupSequences: $groupSequences
+				recordingDuration: $recordingDuration
+				recordingContentType: $recordingContentType
+				hasVideo: $hasVideo
+				types: $types
+				viewerPlaybackStatus: $viewerPlaybackStatus
+				orderBy: [{ field: $sortField, direction: $sortDirection }]
+			) {
+				aggregate {
+					count
+				}
+				nodes {
+					...cardFavorite
+				}
+			}
+		}
+	}
+}

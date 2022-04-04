@@ -1,0 +1,29 @@
+query getPresenterListPageData($language: Language!, $startsWith: String) {
+	persons(
+		language: $language
+		startsWith: $startsWith
+		first: 1500
+		orderBy: [{ field: NAME, direction: ASC }]
+	) {
+		nodes {
+			canonicalPath(useFuturePath: true)
+			givenName
+			surname
+			image {
+				url(size: 128)
+			}
+			summary
+		}
+	}
+	personLetterCounts(language: $language) {
+		letter
+		count
+	}
+}
+
+query getPresenterListPathsData($language: Language!) {
+	personLetterCounts(language: $language) {
+		letter
+		count
+	}
+}

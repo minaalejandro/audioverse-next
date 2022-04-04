@@ -1,0 +1,7 @@
+fragment personLockup on Person {
+	name
+	canonicalPath(useFuturePath: true)
+	imageWithFallback {
+		url(size: 128)
+	}
+}

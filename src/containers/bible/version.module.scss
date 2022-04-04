@@ -1,0 +1,14 @@
+@import '../../styles/common';
+
+.container {
+	padding: $tease-padding;
+	background: $ts-bibleVersionH;
+}
+
+.title {
+	color: $ts-white;
+}
+
+.booksLabel {
+	color: $ts-lightTone;
+}

@@ -1,0 +1,31 @@
+overwrite: true
+schema: 'https://graphql-staging.audioverse.org/graphql'
+documents: 'src/**/*.graphql'
+generates:
+  ./schema.graphql:
+    plugins:
+      - add:
+          content:
+            - '# ------------------------------------------------------'
+            - '# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)'
+            - '# ------------------------------------------------------ '
+      - schema-ast
+  src/lib/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'graphql-plugin-react-query.js'
+      - 'graphql-plugin-getters.js'
+    config:
+      fetcher: '@lib/api/fetchApi#graphqlFetcher'
+      avoidOptionals: true
+      enumsAsConst: true
+      scalars:
+        ID: 'string | number'
+        Date: 'string'
+        DateTime: 'string'
+        RelativeDateTime: 'string'
+        URL: 'string'
+hooks:
+  afterAllFileWrite:
+    - prettier --write

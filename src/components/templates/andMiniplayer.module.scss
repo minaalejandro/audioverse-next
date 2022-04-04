@@ -1,0 +1,13 @@
+@import '../../styles/common';
+
+.contentWithPlayer {
+	@media (min-width: $breakpoint-lg) {
+		padding-bottom: $miniplayer-height;
+	}
+}
+
+.videoOrigin,
+.videoOrigin * {
+	visibility: hidden !important;
+	height: 0;
+}

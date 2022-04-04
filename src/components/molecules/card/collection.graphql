@@ -1,0 +1,23 @@
+fragment cardCollection on Collection {
+	id
+	canonicalPath(useFuturePath: true)
+	collectionContentType: contentType
+	title
+	startDate
+	endDate
+	duration
+	image {
+		id
+		url(size: 240, cropMode: DEFAULT)
+	}
+	allSequences: sequences {
+		aggregate {
+			count
+		}
+	}
+	allRecordings: recordings(sequenceId: 0) {
+		aggregate {
+			count
+		}
+	}
+}

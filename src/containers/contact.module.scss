@@ -1,0 +1,39 @@
+@import '../styles/common';
+
+.intro {
+	margin: 0 0 48px;
+	max-width: 476px;
+	font-family: $serif;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.columns {
+	@media (min-width: $breakpoint-lg) {
+		display: flex;
+		> * {
+			flex: 0 0 50%;
+			&:first-child {
+				padding-right: 16px;
+			}
+			&:last-child {
+				padding-left: 16px;
+			}
+		}
+	}
+}
+
+.padded {
+	padding-bottom: 16px;
+}
+
+.successAlert {
+	margin-top: 32px;
+	padding: 32px;
+}
+.successHeading {
+	margin-bottom: 8px;
+}
+.successCopy {
+	margin: 0;
+}

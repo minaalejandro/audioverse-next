@@ -1,0 +1,32 @@
+fragment cardSequence on Sequence {
+	id
+	title
+	canonicalPath(useFuturePath: true)
+	contentType
+	duration
+	summary
+	speakers: persons(role: SPEAKER, orderBy: [{ field: NAME, direction: ASC }]) {
+		nodes {
+			...personLockup
+		}
+	}
+	sequenceWriters: persons(
+		role: WRITER
+		orderBy: [{ field: NAME, direction: ASC }]
+	) {
+		nodes {
+			...personLockup
+		}
+	}
+	allRecordings: recordings(first: 1) {
+		nodes {
+			canonicalPath(useFuturePath: true)
+		}
+		aggregate {
+			count
+		}
+	}
+	collection {
+		title
+	}
+}

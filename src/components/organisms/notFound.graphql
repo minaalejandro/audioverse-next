@@ -1,0 +1,7 @@
+query getNotFoundPageData {
+	websiteRecentRecordings(language: ENGLISH, first: 3) {
+		nodes {
+			...cardRecording
+		}
+	}
+}

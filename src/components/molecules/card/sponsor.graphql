@@ -1,0 +1,23 @@
+fragment cardSponsor on Sponsor {
+	id
+	title
+	canonicalPath(useFuturePath: true)
+	image {
+		url(size: 128)
+	}
+	collections {
+		aggregate {
+			count
+		}
+	}
+	sequences {
+		aggregate {
+			count
+		}
+	}
+	recordings {
+		aggregate {
+			count
+		}
+	}
+}

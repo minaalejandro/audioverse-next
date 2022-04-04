@@ -1,0 +1,52 @@
+@import '../styles/common';
+
+.wrapper {
+	&,
+	& p {
+		font-size: 15px;
+		line-height: 1.5;
+	}
+}
+
+.intro {
+	font-family: $serif;
+	margin-bottom: 8px;
+}
+
+.heading {
+	margin-bottom: 32px;
+}
+
+.rule {
+	margin: 32px 0;
+	border: none;
+	border-top: 1px solid $ts-cream;
+}
+
+.list {
+	padding: 0;
+}
+
+.entry {
+	font-family: $serif;
+	list-style-type: none;
+	margin-bottom: 32px;
+	p {
+		margin: 0 0 16px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.figure {
+	margin: 0;
+}
+
+.quotation {
+	margin: 0 0 8px;
+}
+
+.source {
+	font-weight: 700;
+}

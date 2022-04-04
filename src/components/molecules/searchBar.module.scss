@@ -1,0 +1,80 @@
+@import '../../styles/common';
+
+.base {
+	flex-grow: 1;
+	display: flex;
+	min-width: 0;
+}
+
+.inner {
+	flex-grow: 1;
+	display: flex;
+	min-width: 0;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 0.5px solid rgba($ts-lightTone, 0.5);
+	letter-spacing: unset;
+	&.focused {
+		border-bottom-color: rgba($ts-dark, 0.5);
+		.icon {
+			color: $ts-red;
+		}
+	}
+}
+
+.inputWrapper {
+	flex-grow: 1;
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	padding-bottom: 8px;
+
+	input {
+		flex-grow: 1;
+		margin: 0;
+		margin-left: 8px;
+		padding: 0;
+		background: none;
+		border: none;
+		outline: none;
+		appearance: none;
+		min-width: 0;
+		&,
+		&::placeholder {
+			font-family: $serif;
+			font-size: 22px;
+			font-weight: 400;
+			line-height: 33px;
+			color: $ts-dark;
+			opacity: 1;
+		}
+		&::-webkit-search-cancel-button {
+			appearance: none;
+		}
+	}
+	a {
+		height: 24px;
+		cursor: pointer;
+	}
+}
+
+.icon,
+.clear {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+
+.icon {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+@media (min-width: $breakpoint-lg) {
+	.clearHidden.clearHidden {
+		display: none;
+	}
+}

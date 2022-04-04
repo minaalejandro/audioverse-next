@@ -1,0 +1,31 @@
+query getSeriesDetailPageData($id: ID!) {
+	series(id: $id) {
+		...sequence
+		canonicalUrl(useFuturePath: true)
+		language
+	}
+}
+
+query getSeriesFeedData($id: ID!) {
+	series(id: $id) {
+		title
+		canonicalUrl(useFuturePath: true)
+		language
+		recordings(first: 25) {
+			aggregate {
+				count
+			}
+			nodes {
+				...generateFeed
+			}
+		}
+	}
+}
+
+query getSeriesDetailPathsData($language: Language!, $first: Int) {
+	serieses(language: $language, first: $first) {
+		nodes {
+			canonicalPath(useFuturePath: true)
+		}
+	}
+}

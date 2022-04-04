@@ -1,0 +1,41 @@
+query getSermonListPageData(
+	$language: Language!
+	$hasVideo: Boolean
+	$first: Int
+	$offset: Int
+) {
+	sermons(
+		language: $language
+		hasVideo: $hasVideo
+		first: $first
+		offset: $offset
+		orderBy: [{ field: PUBLISHED_AT, direction: DESC }]
+	) {
+		nodes {
+			...cardRecording
+		}
+		aggregate {
+			count
+		}
+	}
+}
+
+query getSermonListFeedData($language: Language!) {
+	sermons(
+		language: $language
+		first: 25
+		orderBy: [{ field: PUBLISHED_AT, direction: DESC }]
+	) {
+		nodes {
+			...generateFeed
+		}
+	}
+}
+
+query getSermonListPagePathsData($language: Language!, $hasVideo: Boolean) {
+	sermons(language: $language, hasVideo: $hasVideo) {
+		aggregate {
+			count
+		}
+	}
+}

@@ -1,0 +1,64 @@
+@import '../../styles/common';
+
+.container {
+	padding: $tease-padding;
+	&.AUDIOBOOK {
+		--sequenceBackground: #{$ts-bookH};
+		--sequenceTextColor: #{$ts-white};
+		--sequenceTextSecondaryColor: #{$ts-lightTone};
+	}
+	&.MUSIC_ALBUM {
+		--sequenceBackground: #{$ts-songH};
+		--sequenceTextColor: #{$ts-dark};
+		--sequenceTextSecondaryColor: #{$ts-midTone};
+	}
+	&.SERIES {
+		--sequenceBackground: #{$ts-cream};
+		--sequenceTextColor: #{$ts-dark};
+		--sequenceTextSecondaryColor: #{$ts-midTone};
+	}
+	&.STORY_SEASON {
+		--sequenceBackground: #{$ts-storyH};
+		--sequenceTextColor: #{$ts-white};
+		--sequenceTextSecondaryColor: #{$ts-lightTone};
+	}
+	background: var(--sequenceBackground);
+	color: var(--sequenceTextColor);
+}
+
+.titleLockup {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.image {
+	margin-right: 8px;
+}
+
+.countLabel {
+	margin-top: 16px;
+	margin-bottom: -4px;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	margin-bottom: -4px;
+	> *:first-child {
+		flex-grow: 1;
+	}
+}
+
+.duration {
+	color: var(--sequenceTextSecondaryColor);
+}
+
+.iconButton {
+	margin-left: 8px;
+}
+
+.cardGroup {
+	margin-top: 16px;
+	margin-bottom: 24px;
+}

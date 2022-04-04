@@ -1,0 +1,11 @@
+.base.base {
+	flex: 0 0 auto;
+	height: 56px;
+	width: 56px;
+	border-radius: 56px;
+	&.large {
+		height: 72px;
+		width: 72px;
+		border-radius: 72px;
+	}
+}

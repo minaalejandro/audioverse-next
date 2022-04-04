@@ -1,0 +1,8 @@
+fragment sponsorLockup on Sponsor {
+	id
+	title
+	canonicalPath(useFuturePath: true)
+	imageWithFallback {
+		url(size: 128)
+	}
+}

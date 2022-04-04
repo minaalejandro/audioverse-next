@@ -1,0 +1,39 @@
+query getSponsorTeachingsPageData($id: ID!, $offset: Int, $first: Int) {
+	sponsor(id: $id) {
+		id
+		...sponsorPivot
+		recordings(
+			offset: $offset
+			first: $first
+			orderBy: [{ field: RECORDED_AT, direction: DESC }]
+		) {
+			nodes {
+				...cardRecording
+			}
+			aggregate {
+				count
+			}
+		}
+	}
+}
+
+query getSponsorTeachingsFeedData($id: ID!) {
+	sponsor(id: $id) {
+		title
+		canonicalUrl(useFuturePath: true)
+		language
+		recordings(first: 25, orderBy: [{ field: RECORDED_AT, direction: DESC }]) {
+			nodes {
+				...generateFeed
+			}
+		}
+	}
+}
+
+query getSponsorTeachingsPathsData($language: Language!, $first: Int) {
+	sponsors(language: $language, first: $first) {
+		nodes {
+			id
+		}
+	}
+}

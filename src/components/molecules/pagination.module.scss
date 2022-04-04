@@ -1,0 +1,85 @@
+@import '../../styles/common';
+
+.base {
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.previousButton {
+	margin-right: 24px;
+	@media (min-width: $breakpoint-md) {
+		margin-right: 32px;
+	}
+}
+.nextButton {
+	margin-left: 24px;
+	@media (min-width: $breakpoint-md) {
+		margin-left: 32px;
+	}
+}
+
+.link {
+	display: inline-block;
+	padding-left: 3px;
+	padding-right: 3px;
+
+	a {
+		display: block;
+		line-height: 16px;
+		color: $ts-dark;
+		text-decoration: none;
+		&:hover {
+			color: $ts-red;
+			font-weight: 700;
+		}
+	}
+	&.active {
+		border-bottom: 2px solid $ts-red;
+		a {
+			color: $ts-red;
+			font-weight: 700;
+		}
+	}
+}
+
+.link + .link {
+	margin-left: 20px;
+}
+
+.inverse .link {
+	a {
+		color: $ts-white;
+		&:hover {
+			color: $ts-salmon;
+		}
+	}
+	&.active {
+		border-bottom-color: $ts-salmon;
+		a {
+			color: $ts-salmon;
+		}
+	}
+}
+
+@media (max-width: #{$breakpoint-md - 1px}) {
+	.previousButton,
+	.nextButton {
+		&:not(.mobileButton) {
+			display: none;
+		}
+	}
+	.link.optional {
+		display: none;
+	}
+}
+
+@media (min-width: $breakpoint-md) {
+	.mobileButton {
+		display: none;
+	}
+}

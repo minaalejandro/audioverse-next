@@ -1,0 +1,57 @@
+@import '../../styles/common';
+
+.white {
+	color: $ts-white;
+}
+
+.cream {
+	color: $ts-cream;
+}
+
+.dark {
+	color: $ts-dark;
+}
+
+.salmon {
+	color: $ts-salmon;
+}
+
+.red {
+	color: $ts-red;
+}
+
+.lightTone {
+	color: $ts-lightTone;
+}
+
+.midTone {
+	color: $ts-midTone;
+}
+
+.borderColor-cream {
+	border-color: $ts-cream;
+}
+
+.borderColor-lightTone {
+	border-color: $ts-lightTone;
+}
+
+.borderColor-midTone {
+	border-color: $ts-midTone;
+}
+
+.borderColor-dark {
+	border-color: $ts-dark;
+}
+
+.borderColor-bookH {
+	border-color: $ts-bookH;
+}
+
+.borderColor-storyH {
+	border-color: $ts-storyH;
+}
+
+.borderColor-playlistB {
+	border-color: $ts-playlistB;
+}

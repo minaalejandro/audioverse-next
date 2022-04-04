@@ -1,0 +1,11 @@
+@import '../../styles/common';
+
+.container {
+	margin-top: 32px;
+}
+
+.embedCode {
+	padding: 8px;
+	border: 1px solid $ts-lightTone;
+	color: $ts-dark;
+}

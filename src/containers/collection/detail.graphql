@@ -1,0 +1,96 @@
+query getCollectionDetailPageData($id: ID!) {
+	collection(id: $id) {
+		id
+		title
+		contentType
+		startDate
+		endDate
+		duration
+		description
+		canonicalUrl(useFuturePath: true)
+		language
+		shareUrl
+		location
+		image {
+			url(size: 1000, cropMode: MAX_SIZE)
+		}
+		sponsor {
+			id
+			title
+			canonicalPath(useFuturePath: true)
+			...sponsorLockup
+		}
+		persons(
+			first: 3
+			role: SPEAKER
+			orderBy: [
+				{ field: RECORDING_COUNT, direction: DESC }
+				{ field: RECORDING_DOWNLOADS_ALL_TIME, direction: DESC }
+			]
+		) {
+			nodes {
+				...cardPerson
+			}
+			pageInfo {
+				hasNextPage
+			}
+		}
+		sequences(
+			first: 3
+			orderBy: [{ field: RECORDING_COUNT, direction: DESC }]
+		) {
+			aggregate {
+				count
+			}
+			nodes {
+				...cardSequence
+			}
+			pageInfo {
+				hasNextPage
+			}
+		}
+		recordings(
+			first: 3
+			sequenceId: 0
+			orderBy: [{ field: PUBLISHED_AT, direction: DESC }]
+		) {
+			aggregate {
+				count
+			}
+			nodes {
+				...cardRecording
+			}
+			pageInfo {
+				hasNextPage
+			}
+		}
+	}
+}
+
+query getCollectionFeedData($id: ID!) {
+	collection(id: $id) {
+		title
+		canonicalUrl(useFuturePath: true)
+		language
+		image {
+			url(size: 600)
+		}
+		recordings(first: 25, orderBy: [{ field: RECORDED_AT, direction: ASC }]) {
+			aggregate {
+				count
+			}
+			nodes {
+				...generateFeed
+			}
+		}
+	}
+}
+
+query getCollectionDetailPathsData($language: Language!, $first: Int) {
+	collections(language: $language, first: $first) {
+		nodes {
+			id
+			canonicalPath(useFuturePath: true)
+		}
+	}
+}

@@ -1,0 +1,13 @@
+@use 'sass:math';
+@import '../../styles/common';
+
+.base {
+	@media (min-width: $breakpoint-md) {
+		width: calc(66.6667% - #{math.div($grid-gap, 2)});
+		min-width: $header-minWidth;
+	}
+	@media (min-width: $breakpoint-lg) {
+		width: calc(66.6667% - #{math.div($grid-gap, 3)});
+		max-width: $header-maxWidth;
+	}
+}

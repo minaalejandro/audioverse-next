@@ -1,0 +1,34 @@
+query getHomeStaticProps($language: Language!) {
+	websiteRecentRecordings(language: $language) {
+		nodes {
+			...cardRecording
+		}
+	}
+	testimonies(
+		language: $language
+		first: 3
+		orderBy: [{ field: WRITTEN_DATE, direction: DESC }]
+	) {
+		nodes {
+			...testimonies
+		}
+	}
+	blogPosts(
+		language: $language
+		first: 3
+		orderBy: { field: PUBLISHED_AT, direction: DESC }
+	) {
+		nodes {
+			...cardPost
+		}
+	}
+	bibleChapters: sequences(
+		language: $language
+		first: 1
+		contentType: BIBLE_BOOK
+	) {
+		nodes {
+			...cardSequence
+		}
+	}
+}

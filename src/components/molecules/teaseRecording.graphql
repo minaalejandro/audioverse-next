@@ -1,0 +1,17 @@
+fragment teaseRecording on Recording {
+	...andMiniplayer
+	recordingContentType: contentType
+	canonicalPath(useFuturePath: true)
+	persons(role: SPEAKER) {
+		...personLockup
+	}
+	sequenceIndex
+	sequence {
+		id
+		recordings {
+			aggregate {
+				count
+			}
+		}
+	}
+}

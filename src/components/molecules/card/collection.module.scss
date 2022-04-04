@@ -1,0 +1,101 @@
+@import '../../../styles/common';
+
+$container-padding: 16px;
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: $container-padding;
+	border-radius: 16px;
+	overflow: hidden;
+	background-color: $ts-dark;
+	transition-duration: $transition-medium;
+	&,
+	&:hover {
+		color: $ts-white;
+	}
+	&:hover:not(.otherHovered) {
+		background-color: $ts-darkened-dark;
+	}
+}
+
+.bibleVersion {
+	background-color: $ts-bibleVersionH;
+	&:hover:not(.otherHovered) {
+		background-color: $ts-darkened-bibleH;
+	}
+}
+
+.imageContainer {
+	height: 124px;
+	position: relative;
+	margin-bottom: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	> * {
+		border-radius: 8px;
+	}
+}
+
+.date {
+	margin-bottom: 8px;
+	color: $ts-salmon;
+}
+
+.title {
+	margin-bottom: 8px;
+	flex-grow: 1;
+	a:hover {
+		color: $ts-white;
+		text-decoration: none;
+	}
+}
+
+.details {
+	display: flex;
+	align-items: center;
+	margin-top: -8px;
+	height: 32px;
+}
+
+.sequencesLabel,
+.duration {
+	color: $ts-lightTone;
+}
+
+.sequencesLabel {
+	margin-top: 16px;
+	margin-bottom: 3.5px;
+}
+
+.duration {
+	line-height: 1.21;
+}
+
+.progress {
+	margin-left: 16px;
+	flex-grow: 1;
+	--progressColor: #{$ts-salmon};
+}
+
+.like {
+	display: none;
+	@media (any-pointer: fine) {
+		display: inherit;
+	}
+	@media (pointer: coarse) {
+		pointer-events: none;
+	}
+	&Active {
+		display: inherit;
+	}
+}
+
+.subItems,
+.subItem:nth-of-type(n + 2) {
+	margin-top: 16px;
+}
+
+.showAll {
+	margin-top: 16px;
+}

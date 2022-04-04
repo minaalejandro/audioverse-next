@@ -1,0 +1,10 @@
+@import '../../styles/common';
+
+.base {
+	display: flex;
+	justify-content: space-between;
+	color: var(--recordingTextSecondaryColor);
+	> span {
+		font-variant-numeric: tabular-nums;
+	}
+}

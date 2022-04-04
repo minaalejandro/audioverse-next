@@ -1,0 +1,201 @@
+@use 'mixins.scss';
+
+@import 'inter.scss';
+
+// START normalize.css
+
+@import '../../node_modules/normalize.css/normalize.css';
+
+// END normalize.css
+
+@import './common.scss';
+
+html {
+	@include mixins.sansFontFamily();
+}
+
+* {
+	box-sizing: border-box;
+	&::selection {
+		color: $ts-cream;
+		background: $ts-dark;
+	}
+	transition-property: color, border-color, background-color;
+	transition-duration: $transition-quick;
+	transition-timing-function: linear;
+}
+
+html {
+	height: 100%;
+	font-size: 14px;
+	line-height: 1.1;
+}
+
+body {
+	min-height: 100%;
+	background: $ts-cream;
+	&.body--no-sidebar {
+		background: $ts-white;
+	}
+}
+
+html,
+body,
+#__next {
+	padding: 0;
+	margin: 0;
+	color: $ts-dark;
+}
+
+body.scrollDisabledMobile {
+	height: 100%;
+	overflow: hidden;
+	@media (min-width: $breakpoint-lg) {
+		height: auto;
+		overflow: auto;
+	}
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: $serif;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 110%;
+}
+
+h1 {
+	font-size: 22px;
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+h2 {
+	font-size: 17px;
+}
+
+h3 {
+	font-size: 17px;
+}
+
+h5 {
+	font-size: 16px;
+	line-height: 19.36px;
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+h6 {
+	font-size: 10px;
+	line-height: 12px;
+}
+
+@media (min-width: $breakpoint-lg) {
+	body {
+		background: $ts-white;
+	}
+	h1 {
+		font-size: 44px;
+	}
+	h2 {
+		font-size: 22px;
+	}
+}
+
+a {
+	color: inherit;
+	cursor: pointer;
+	text-underline-offset: 2px;
+	&.decorated {
+		text-decoration: underline;
+	}
+	&:not(.decorated) {
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: $ts-red;
+		text-decoration: underline;
+		&.hover--salmon {
+			color: $ts-salmon;
+		}
+	}
+}
+
+*:hover {
+	&.hover-bg--darkened-white {
+		background-color: $ts-darkened-white;
+	}
+	&.hover-bg--darkened-cream {
+		background-color: $ts-darkened-cream;
+	}
+	&.hover-bg--darkened-dark {
+		background-color: $ts-darkened-dark;
+	}
+	&.hover-bg--darkened-lightTone {
+		background-color: $ts-darkened-lightTone;
+	}
+	&.hover-bg--darkened-bibleB {
+		background-color: $ts-darkened-bibleB;
+	}
+	&.hover-bg--darkened-bibleH {
+		background-color: $ts-darkened-bibleH;
+	}
+	&.hover-bg--darkened-bookB {
+		background-color: $ts-darkened-bookB;
+	}
+	&.hover-bg--darkened-bookH {
+		background-color: $ts-darkened-bookH;
+	}
+	&.hover-bg--darkened-songB {
+		background-color: $ts-darkened-songB;
+	}
+	&.hover-bg--darkened-songH {
+		background-color: $ts-darkened-songH;
+	}
+	&.hover-bg--darkened-storyB {
+		background-color: $ts-darkened-storyB;
+	}
+	&.hover-bg--darkened-storyH {
+		background-color: $ts-darkened-storyH;
+	}
+	&.hover-bg--darkened-topicB {
+		background-color: $ts-darkened-topicB;
+	}
+	&.hover-bg--darkened-playlistH {
+		background-color: $ts-darkened-playlistH;
+	}
+	&.hover-bg--darkened-smartPlaylistH {
+		background-color: $ts-darkened-smartPlaylistH;
+	}
+}
+
+p {
+	line-height: 1.21;
+}
+
+/* Material UI Customizations */
+
+.MuiSlider-root.MuiSlider-colorPrimary {
+	color: $ts-dark;
+	.MuiSlider-thumb {
+		color: white;
+		box-shadow: 0 4px 10px 0 #00000026;
+		width: 16px;
+		height: 16px;
+		margin-top: -7px;
+		margin-left: -8px;
+	}
+}
+
+/* Video.js Customizations */
+
+.video-js {
+	.vjs-poster {
+	}
+}

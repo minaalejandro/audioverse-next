@@ -1,0 +1,29 @@
+fragment sequence on Sequence {
+	id
+	title
+	contentType
+	duration
+	description
+	startDate
+	endDate
+	collection {
+		title
+		canonicalPath(useFuturePath: true)
+	}
+	image {
+		url(size: 100)
+	}
+	sponsor {
+		title
+		canonicalPath(useFuturePath: true)
+	}
+	shareUrl
+	recordings(first: 250) {
+		aggregate {
+			count
+		}
+		nodes {
+			...cardRecording
+		}
+	}
+}

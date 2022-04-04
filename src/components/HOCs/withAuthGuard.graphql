@@ -1,0 +1,8 @@
+query getWithAuthGuardData {
+	me {
+		user {
+			email
+			name
+		}
+	}
+}

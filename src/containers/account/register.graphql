@@ -1,0 +1,47 @@
+mutation register(
+	$email: String!
+	$password: String!
+	$firstName: String!
+	$lastName: String!
+) {
+	signup(
+		input: {
+			email: $email
+			password: $password
+			givenName: $firstName
+			surname: $lastName
+		}
+	) {
+		authenticatedUser {
+			sessionToken
+		}
+		errors {
+			message
+		}
+	}
+}
+
+mutation registerSocial(
+	$socialId: String!
+	$socialName: UserSocialServiceName!
+	$socialToken: String!
+	$givenName: String
+	$surname: String
+) {
+	loginSocial(
+		input: {
+			socialId: $socialId
+			socialName: $socialName
+			socialToken: $socialToken
+			givenName: $givenName
+			surname: $surname
+		}
+	) {
+		authenticatedUser {
+			sessionToken
+		}
+		errors {
+			message
+		}
+	}
+}

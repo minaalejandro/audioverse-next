@@ -1,0 +1,21 @@
+fragment copyrightInfo on Recording {
+	copyrightYear
+	contentType
+	distributionAgreement {
+		sponsor {
+			title
+		}
+		license {
+			summary
+			image {
+				url(size: 100, cropMode: MAX_SIZE)
+			}
+		}
+	}
+	collection {
+		title
+	}
+	sponsor {
+		title
+	}
+}

@@ -1,0 +1,17 @@
+@import '../../styles/common';
+
+.base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 32px;
+	width: 32px;
+	padding: 0;
+	border-radius: 16px;
+	border: none;
+	background: transparent;
+	transition-duration: $transition-medium;
+	&:hover {
+		cursor: pointer;
+	}
+}

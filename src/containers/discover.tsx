@@ -1,0 +1,158 @@
+import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
+import LineHeading from '@components/atoms/lineHeading';
+import Button from '@components/molecules/button';
+import CardCollection from '@components/molecules/card/collection';
+import CardPost from '@components/molecules/card/post';
+import CardRecording from '@components/molecules/card/recording';
+import CardSequence from '@components/molecules/card/sequence';
+import CardGroup from '@components/molecules/cardGroup';
+import { GetDiscoverPageDataQuery } from '@lib/generated/graphql';
+import {
+	makeBlogPostListRoute,
+	makeConferenceListRoute,
+	makeSermonListRoute,
+	makeStoryAlbumListPage,
+	makeTrendingSermonRoute,
+} from '@lib/routes';
+import useLanguageRoute from '@lib/useLanguageRoute';
+
+import ForwardIcon from '../../public/img/icon-forward-light.svg';
+
+import styles from './discover.module.scss';
+
+export type DiscoverProps = GetDiscoverPageDataQuery;
+
+export default function Discover({
+	recentTeachings,
+	trendingTeachings,
+	storySeasons,
+	conferences,
+	blogPosts,
+}: DiscoverProps): JSX.Element {
+	const languageRoute = useLanguageRoute();
+	const sections = [
+		{
+			heading: (
+				<FormattedMessage
+					id="discover_recentTeachingsHeading"
+					defaultMessage="Recent Teachings"
+				/>
+			),
+			cards: recentTeachings.nodes?.map((recording) => (
+				<CardRecording recording={recording} key={recording.canonicalPath} />
+			)),
+			seeAll: (
+				<FormattedMessage
+					id="discover__recentTeachingsSeeAll"
+					defaultMessage="See All Teachings"
+				/>
+			),
+			url: makeSermonListRoute(languageRoute, 'all', 1),
+		},
+		{
+			heading: (
+				<FormattedMessage
+					id="discover_trendingTeachingsHeading"
+					defaultMessage="Trending Teachings"
+				/>
+			),
+			cards: trendingTeachings.nodes?.map(({ recording }) => (
+				<CardRecording recording={recording} key={recording.canonicalPath} />
+			)),
+			seeAll: (
+				<FormattedMessage
+					id="discover__trendingTeachingsSeeAll"
+					defaultMessage="See All Trending Teachings"
+				/>
+			),
+			url: makeTrendingSermonRoute(languageRoute),
+		},
+		{
+			heading: (
+				<FormattedMessage
+					id="discover_recentBlogHeading"
+					defaultMessage="Recent Blog Posts"
+				/>
+			),
+			cards: blogPosts.nodes?.map((post) => (
+				<CardPost post={post} key={post.canonicalPath} />
+			)),
+			seeAll: (
+				<FormattedMessage
+					id="discover__recentBlogSeeAll"
+					defaultMessage="See All Blog Posts"
+				/>
+			),
+			url: makeBlogPostListRoute(languageRoute),
+		},
+		{
+			heading: (
+				<FormattedMessage
+					id="discover__storiesHeading"
+					defaultMessage="Recent Stories"
+				/>
+			),
+			cards: storySeasons.nodes?.map((sequence) => (
+				<CardSequence
+					sequence={sequence}
+					recordings={sequence.recordings.nodes}
+					key={sequence.canonicalPath}
+				/>
+			)),
+			seeAll: (
+				<FormattedMessage
+					id="discover__storiesSeeAll"
+					defaultMessage="See All Stories"
+				/>
+			),
+			url: makeStoryAlbumListPage(languageRoute),
+		},
+		{
+			heading: (
+				<FormattedMessage
+					id="discover_conferencesHeading"
+					defaultMessage="Recent Conferences"
+				/>
+			),
+			cards: conferences.nodes?.map((conference) => (
+				<CardCollection
+					collection={conference}
+					sequences={conference.sequences.nodes}
+					recordings={
+						!conference.sequences.nodes?.length
+							? conference.recordings.nodes
+							: null
+					}
+					key={conference.canonicalPath}
+				/>
+			)),
+			seeAll: (
+				<FormattedMessage
+					id="discover__conferencesSeeAll"
+					defaultMessage="See All Conferences"
+				/>
+			),
+			url: makeConferenceListRoute(languageRoute),
+		},
+	];
+
+	return (
+		<>
+			{sections.map(({ heading, cards, seeAll, url }) => (
+				<div key={url}>
+					<LineHeading>{heading}</LineHeading>
+					<CardGroup>{cards}</CardGroup>
+					<Button
+						type="secondary"
+						text={seeAll}
+						href={url}
+						IconRight={ForwardIcon}
+						className={styles.seeAllButton}
+					/>
+				</div>
+			))}
+		</>
+	);
+}

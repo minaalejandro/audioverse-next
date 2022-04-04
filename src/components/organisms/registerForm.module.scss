@@ -1,0 +1,25 @@
+@import '../../styles/common';
+
+.form {
+	margin-top: 32px;
+}
+
+.actions {
+	margin: 32px auto 0 auto;
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.submit {
+	margin-bottom: 32px;
+}
+
+.login {
+	margin-top: 8px;
+}
+
+.guestLink {
+	margin-top: 32px;
+}

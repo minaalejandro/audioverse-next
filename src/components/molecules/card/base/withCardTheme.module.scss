@@ -1,0 +1,119 @@
+@import '../../../../styles/common';
+
+.base {
+	display: flex;
+	flex-direction: column;
+	background: var(--cardBg);
+}
+
+.audiobookTrack {
+	--hatBg: #{$ts-bookH};
+	--hatColor: #{$ts-white};
+	--hatHoverColor: #{$ts-darkened-bookH};
+	--cardBg: #{$ts-bookB};
+	--cardColor: #{$ts-lightTone};
+	--cardHoverColor: #{$ts-darkened-bookB};
+	--headingColor: #{$ts-white};
+	--progressColor: #{$ts-salmon};
+	--partColor: #{$ts-salmon};
+	--iconColor: #{$ts-salmon};
+	--textRuleColor: #{$ts-bookH};
+}
+
+.chapter {
+	--hatBg: #{$ts-bibleH};
+	--hatColor: #{$ts-white};
+	--hatHoverColor: #{$ts-darkened-bibleH};
+	--cardBg: #{$ts-bibleB};
+	--cardColor: #{$ts-dark};
+	--cardHoverColor: #{$ts-darkened-bibleB};
+	--partColor: #{$ts-red};
+	--iconColor: #{$ts-salmon};
+	--textRuleColor: #{$ts-midTone};
+}
+
+.sermon {
+	// base
+	--hatBg: #{$ts-cream};
+	--hatHoverColor: #{$ts-darkened-cream};
+	--cardBg: #{$ts-white};
+	--cardHoverColor: #{$ts-darkened-white};
+	--textRuleColor: #{$ts-lightTone};
+}
+
+.song {
+	--hatBg: #{$ts-songH};
+	--hatColor: #{$ts-dark};
+	--hatHoverColor: #{$ts-darkened-songH};
+	--cardBg: #{$ts-songB};
+	--cardHoverColor: #{$ts-darkened-songB};
+	--cardColor: #{$ts-midTone};
+	--headingColor: #{$ts-dark};
+	--progressColor: #{$ts-red};
+	--partColor: #{$ts-red};
+	--iconColor: #{$ts-red};
+	--textRuleColor: #{$ts-midTone};
+}
+
+.story {
+	--hatBg: #{$ts-storyH};
+	--hatColor: #{$ts-white};
+	--hatHoverColor: #{$ts-darkened-storyH};
+	--cardBg: #{$ts-storyB};
+	--cardColor: #{$ts-lightTone};
+	--cardHoverColor: #{$ts-darkened-storyB};
+	--headingColor: #{$ts-white};
+	--progressColor: #{$ts-salmon};
+	--partColor: #{$ts-salmon};
+	--iconColor: #{$ts-salmon};
+	--textRuleColor: #{$ts-lightTone};
+}
+
+.topic {
+	--hatBg: #{$ts-topicH};
+	--hatColor: #{$ts-white};
+	--hatHoverColor: #{$ts-darkened-topicH};
+	--cardBg: #{$ts-topicB};
+	--cardColor: #{$ts-lightTone};
+	--cardHoverColor: #{$ts-darkened-topicB};
+	--headingColor: #{$ts-white};
+	--progressColor: #{$ts-salmon};
+	--partColor: #{$ts-salmon};
+	--iconColor: #{$ts-salmon};
+	--textRuleColor: #{$ts-topicH};
+}
+
+.playlistItem {
+	--hatBg: #{$ts-playlistH};
+	--hatColor: #{$ts-white};
+	--hatHoverColor: #{$ts-darkened-playlistH};
+	--cardBg: #{$ts-playlistB};
+	--cardColor: #{$ts-midTone};
+	--cardHoverColor: #{$ts-darkened-playlistB};
+	--headingColor: #{$ts-dark};
+	--progressColor: #{$ts-red};
+	--partColor: #{$ts-red};
+	--iconColor: #{$ts-red};
+	--textRuleColor: #{$ts-lightTone};
+}
+
+// These are partially implemented
+.collection {
+	--cardBg: #{$ts-dark};
+	--cardHoverColor: #{$ts-darkened-dark};
+}
+
+.sequence {
+	--cardBg: #{$ts-cream};
+	--cardHoverColor: #{$ts-darkened-cream};
+}
+
+.playlist {
+	--cardBg: #{$ts-playlistH};
+	--cardHoverColor: #{$ts-darkened-playlistH};
+}
+
+.songBook {
+	--cardBg: #{$ts-songH};
+	--cardHoverColor: #{$ts-darkened-songH};
+}

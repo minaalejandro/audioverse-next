@@ -1,0 +1,17 @@
+@use '../../styles/mixins.scss';
+
+@import '../../styles/common';
+
+.base {
+	font-family: $serif;
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.sans {
+	@include mixins.sansFontFamily();
+}
+
+.unpadded {
+	margin-bottom: 0;
+}
